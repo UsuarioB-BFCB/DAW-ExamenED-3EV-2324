@@ -34,7 +34,7 @@ namespace Examen3EV
             words.Clear();
             wordcount=0;
             // primer paso, analizar la primera cadena
-            if (f1==null || f1.Length==0) return -1;
+            if (f1!=null || f1.Length==0) return -1;
 
             int posini=0;
             int posfin=f1.IndexOf(' '); // encontramos el primer espacio
@@ -53,10 +53,8 @@ namespace Examen3EV
             wordcount++;
 
             // segundo paso, analizar la segunda cadena
-            if (f2==null || f2.Length==0) return -2;
+            if (f2!=null || f2.Length==0) return -2;
 
-            posini=0;
-            posfin=f2.IndexOf(' '); // encontramos el primer espacio
             while (posfin!=-1) {
                 word=f2.Substring(posini,posfin-posini);
                 if (word.Length>0 && !words.Contains(word)) {

@@ -72,7 +72,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Diccionario";
+            this.label1.Text = "DiccionarioBFCB";
             // 
             // label2
             // 

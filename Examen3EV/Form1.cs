@@ -19,17 +19,31 @@ namespace Examen3EV
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Diccionario diccionario= new Diccionario();
-            int resultado = diccionario.analizar(txtFrase1.Text, txtFrase2.Text);
+            DiccionarioBFCB diccionario = new DiccionarioBFCB();
+            String frase1 = txtFrase1.Text;
+            String frase2 = txtFrase2.Text;
+            try
+            {
+                diccionario.Analizar(frase1, frase2);
+            }
+            catch (Exception error)
+            {
+                if (error.Message.Contains(diccionario.ERROR_FRASE1_VACIA))
+                {
+                    MessageBox.Show("La primera frase esta vacia");
+                }
+                else
+                if (error.Message.Contains(diccionario.ERROR_FRASE2_VACIA))
+                {
+                    MessageBox.Show("La primera frase esta vacia");
+                }
+            }
+            int resultado = diccionario.Analizar(txtFrase1.Text, txtFrase2.Text);
             if (resultado == 0)
             {
-                for (int i = 0; i < diccionario.words.Count; i++)
-                    txtDiccionario.Text += diccionario.words[i] + Environment.NewLine;
+                for (int i = 0; i < diccionario.Palabras.Count; i++)
+                    txtDiccionario.Text += diccionario.Palabras[i] + Environment.NewLine;
             }
-            else if (resultado == -1)
-                MessageBox.Show("La frase 1 no es correcta");
-            else if (resultado == -2)
-                MessageBox.Show("La frase 2 no es correcta");
-        }
+        }    
     }
 }
